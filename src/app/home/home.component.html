@@ -1,0 +1,32 @@
+<!--Navbar Manu-->
+<app-navbar></app-navbar>
+<!--Banner image-->
+<app-carosual></app-carosual>
+<div class="container" style="padding:20px 0px;">
+    <div class="row">
+        <div class="col-sm-7 margin-auto">
+            <form [formGroup]="claimForm">
+                <p-panel header="Policy">
+                    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Policy Number *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="policyno" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="policy No is required" *ngIf="!claimForm.controls['policyno'].valid&&claimForm.controls['policyno'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-6"></div>
+                            <div class="ui-grid-col-3">
+                                <button pButton type="submit" label="Submit" [disabled]="!claimForm.valid"></button>
+                            </div>
+                        </div>
+                    </div>
+                </p-panel>
+            </form>
+        </div>
+    </div>

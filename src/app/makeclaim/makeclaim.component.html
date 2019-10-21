@@ -1,0 +1,122 @@
+<!--NavBar Menu-->
+<app-navbar></app-navbar>
+<!--Banner image-->
+<app-carosual></app-carosual>
+<div class="container" style="padding:20px 0px;">
+    <div class="row">
+        <div class="col-sm-7 margin-auto">
+            <form [formGroup]="makeClaimForm">
+                <p-panel header="Add Claim">
+                    <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Name *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="name" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="Name is required" *ngIf="!makeClaimForm.controls['name'].valid&&makeClaimForm.controls['name'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Policy number:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="policyNumber" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="Policy Number is required" *ngIf="!makeClaimForm.controls['policyNumber'].valid&&makeClaimForm.controls['policyNumber'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Diagnosis *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="diagnosis" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="Diagnosis is required" *ngIf="!makeClaimForm.controls['diagnosis'].valid&&makeClaimForm.controls['diagnosis'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Admission Date *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <p-calendar formControlName="admissionDate" [showIcon]="true" [readonlyInput]="true"></p-calendar>
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="Admission Date is required" *ngIf="!makeClaimForm.controls['admissionDate'].valid&&makeClaimForm.controls['admissionDate'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Discharge Date *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <p-calendar formControlName="dischargeDate" [showIcon]="true" [readonlyInput]="true"></p-calendar>
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text=" Discharge Date is required" *ngIf="!makeClaimForm.controls['dischargeDate'].valid&&makeClaimForm.controls['dischargeDate'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Total Claim Amount *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="totalClaimAmount" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="Total Claim Amount is required" *ngIf="!makeClaimForm.controls['totalClaimAmount'].valid&&makeClaimForm.controls['totalClaimAmount'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Hospital name *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="hospitalName" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="Hospital name is required" *ngIf="!makeClaimForm.controls['hospitalName'].valid&&makeClaimForm.controls['hospitalName'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Details in discharge Summary *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="dischargeSummary" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text="Details in discharge Summary Claim Amount is required"
+                                        *ngIf="!makeClaimForm.controls['dischargeSummary'].valid&&makeClaimForm.controls['dischargeSummary'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-3">
+                                Nature of Ailment *:
+                            </div>
+                            <div class="ui-grid-col-6">
+                                <input pInputText type="text" formControlName="natureOfAilment" placeholder="Required" />
+                                <div style="margin-top:10px;">
+                                    <p-message severity="error" text=" Nature of Ailment is required" *ngIf="!makeClaimForm.controls['natureOfAilment'].valid&&makeClaimForm.controls['natureOfAilment'].dirty"></p-message>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui-grid-row">
+                            <div class="ui-grid-col-6"></div>
+                            <div class="ui-grid-col-3">
+                                <button pButton type="submit" label="Submit" [disabled]="!makeClaimForm.valid"></button>
+                            </div>
+                        </div>
+                    </div>
+                </p-panel>
+            </form>
+        </div>
+    </div>
+</div>

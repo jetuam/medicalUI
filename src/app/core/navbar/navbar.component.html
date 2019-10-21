@@ -1,0 +1,34 @@
+<header id="myHeader">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" aria-label="button" data-toggle="collapse" data-target="#myNavbar"
+                    (click)="navMenu()">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" routerLink="/"><img src="./assets/images/logo.jpg" alt="logo"></a>
+                <strong class="title">Medical Claim</strong>
+            </div>
+            <div id="myLinks">
+                <div>
+                    <ul class="nav navbar-nav txt-menu">
+                        <li routerLinkActive="active"><a routerLink="/home">Home</a></li>
+                        <li routerLinkActive="active"><a routerLink="/makeclaim">Add Claim</a></li>
+                    </ul>
+                    <!-- <ul class="nav navbar-nav navbar-right">
+                        <li><a><span class="glyphicon glyphicon-user"></span> &nbsp;{{data.firstName}}
+                                {{data.lastName}}</a></li>
+                        <li><a routerLink="/login" (click)="logOut()"><span class="glyphicon glyphicon-log-out"></span>
+                                logout</a></li>
+                    </ul> -->
+                </div>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a routerLink="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
