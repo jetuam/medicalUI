@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  localPath: 'http://18.189.186.75:8000/medicalclaims/'
 };
 
 /*

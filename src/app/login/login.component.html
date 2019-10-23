@@ -5,17 +5,19 @@
 <div class="container" style="padding:20px 0px;">
     <div class="row">
         <div class="col-sm-8 margin-auto">
+            <!--Login Form Start-->
             <form [formGroup]="loginForm">
                 <p-panel header="Login">
                     <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
                         <div class="ui-grid-row">
                             <div class="ui-grid-col-3">
-                                First Name *:
+                                Email Id *:
                             </div>
                             <div class="ui-grid-col-6">
-                                <input pInputText type="text" formControlName="username" placeholder="Required" />
+                                <input pInputText type="text" formControlName="mailId" placeholder="Email Id" />
                                 <div style="margin-top:10px;">
-                                    <p-message severity="error" text="Username is required" *ngIf="!loginForm.controls['username'].valid&&loginForm.controls['username'].dirty"></p-message>
+                                    <p-message severity="error" [text]="loginForm.controls['mailId'].errors['required'] ? 'Email Id is required' : loginForm.controls['mailId'].errors['email'] ? 'Please enter the Vaild Email Id' : ''"
+                                        *ngIf="!loginForm.controls['mailId'].valid&&loginForm.controls['mailId'].dirty"></p-message>
                                 </div>
                             </div>
                         </div>
@@ -24,7 +26,7 @@
                                 Password *:
                             </div>
                             <div class="ui-grid-col-6">
-                                <input pInputText type="password" formControlName="password" placeholder="Required - Min(6)" />
+                                <input pInputText type="password" formControlName="password" placeholder="Text should be Min(6)" />
                                 <div style="margin-top:10px;">
                                     <p-message severity="error" [text]="loginForm.controls['password'].errors['required'] ? 'Password is required' : loginForm.controls['password'].errors['minlength'] ? 'Must be longer than 6 characters' : ''"
                                         *ngIf="!loginForm.controls['password'].valid&&loginForm.controls['password'].dirty"></p-message>
@@ -34,12 +36,15 @@
                         <div class="ui-grid-row">
                             <div class="ui-grid-col-6"></div>
                             <div class="ui-grid-col-3">
-                                <button pButton type="submit" label="Submit" [disabled]="!loginForm.valid"></button>
+                                <button pButton type="submit" label="Submit" [disabled]="!loginForm.valid" (click)="onLogin()"></button>
                             </div>
                         </div>
                     </div>
                 </p-panel>
             </form>
+            <!--Login Form End-->
         </div>
     </div>
 </div>
+<!--Msg dispaly-->
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>

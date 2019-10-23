@@ -5,6 +5,7 @@
 <div class="container" style="padding:20px 0px;">
     <div class="row">
         <div class="col-sm-7 margin-auto">
+            <!--Claim Form Start-->
             <form [formGroup]="claimForm">
                 <p-panel header="Policy">
                     <div class="ui-grid ui-grid-responsive ui-grid-pad ui-fluid" style="margin: 10px 0px">
@@ -13,7 +14,7 @@
                                 Policy Number *:
                             </div>
                             <div class="ui-grid-col-6">
-                                <input pInputText type="text" formControlName="policyno" placeholder="Required" />
+                                <input pInputText type="number" formControlName="policyno" placeholder="Required" />
                                 <div style="margin-top:10px;">
                                     <p-message severity="error" text="policy No is required" *ngIf="!claimForm.controls['policyno'].valid&&claimForm.controls['policyno'].dirty"></p-message>
                                 </div>
@@ -22,11 +23,40 @@
                         <div class="ui-grid-row">
                             <div class="ui-grid-col-6"></div>
                             <div class="ui-grid-col-3">
-                                <button pButton type="submit" label="Submit" [disabled]="!claimForm.valid"></button>
+                                <button pButton type="submit" label="Submit" [disabled]="!claimForm.valid" (click)="onPolicySubmit()"></button>
                             </div>
                         </div>
                     </div>
                 </p-panel>
             </form>
+            <!--Claim Form End-->
+        </div>
+        <div class="row" *ngIf="showTable">
+            <div class="col-sm-12" style="padding: 30px 0px;">
+                <!--Claim policy dispaly table start-->
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Holder Name</th>
+                            <th>Type</th>
+                            <th>Eligible Amount</th>
+                            <th>Claimed Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="policyDetails">
+                            <td>{{policyDetails.policyHolderName}}</td>
+                            <td>{{policyDetails.policyType}}</td>
+                            <td>{{policyDetails.eligibleAmount | currency:'INR':"symbol-narrow"}}</td>
+                            <td>{{policyDetails.claimedAmount | currency:'INR':"symbol-narrow"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--Claim policy dispaly table end-->
+                <!-- <app-table [columns]="cols" [rows]="policyDetails" [pagnation]="pagnation"></app-table> -->
+            </div>
         </div>
     </div>
+
+    <!--Msg dispaly-->
+    <p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>

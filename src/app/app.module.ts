@@ -7,6 +7,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  * Import the Prime Ng modules path 
  */
 import { PrimeNgModule } from './core/prime-ng/prime-ng.module';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,8 @@ import { CarosualComponent } from './core/carosual/carosual.component';
 import { HomeComponent } from './home/home.component';
 import { MakeclaimComponent } from './makeclaim/makeclaim.component';
 import { TableComponent } from './core/table/table.component';
+import { ApproverComponent } from './approver/approver.component';
+
 
 @NgModule({
   declarations: [
@@ -25,12 +28,12 @@ import { TableComponent } from './core/table/table.component';
     HomeComponent,
     MakeclaimComponent,
     TableComponent,
+    ApproverComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule,
-    PrimeNgModule,
+    BrowserAnimationsModule, FormsModule, ReactiveFormsModule, HttpClientModule, PrimeNgModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

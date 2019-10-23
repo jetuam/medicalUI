@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TableComponent } from './table.component';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('TableComponent', () => {
   let component: TableComponent;
@@ -8,9 +10,10 @@ describe('TableComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TableComponent ]
+      declarations: [TableComponent],
+      imports: [PrimeNgModule, HttpClientModule]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -23,3 +26,4 @@ describe('TableComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+

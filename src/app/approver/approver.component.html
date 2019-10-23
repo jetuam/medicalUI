@@ -1,0 +1,98 @@
+<!--Navbar Manu-->
+<app-navbar></app-navbar>
+<!--Banner image-->
+<app-carosual></app-carosual>
+<div class="container" style="padding:20px 0px;">
+    <div class="row">
+        <!--Display the claim details start-->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Claim Number</th>
+                    <th>Hospital Name</th>
+                    <th>Diagnosis</th>
+                    <th>Claim Amount</th>
+                    <th>Admitted Date</th>
+                    <th>Discharge Date</th>
+                    <th>View</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let claim of claims">
+                    <td>{{claim.claimNo}}</td>
+                    <td>{{claim.hospitalName}}</td>
+                    <td>{{claim.diagnosis}}</td>
+                    <td>{{claim.claimAmount | currency:'INR':"symbol-narrow"}}</td>
+                    <td>{{claim.admittedDate}}</td>
+                    <td>{{claim.dischargeDate}}</td>
+                    <td><button pButton type="button" label="View" (click)="onClaimView(claim)"></button></td>
+                </tr>
+            </tbody>
+        </table>
+        <!--Display the claim details end-->
+        <div class="errorMsg" *ngIf="showErrorMsg">
+            <div class="alert alert-info">
+                <strong>{{errorMsg}}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--PopUp-->
+<p-dialog header="Claims Details" [(visible)]="display" [modal]="true" [responsive]="true" [style]="{width: '750px', minWidth: '200px'}"
+    [minY]="70" [maximizable]="true" [baseZIndex]="10000">
+    <div *ngIf="claimsDetails" class="popup-inner">
+        <div class="row">
+            <div class="col-sm-3">Claim No:</div>
+            <div class="col-sm-3">{{claimsDetails.claimNo}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Diagnosis:</div>
+            <div class="col-sm-3">{{claimsDetails.diagnosis}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Hospital Name:</div>
+            <div class="col-sm-3">{{claimsDetails.hospitalName}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">FilePath:</div>
+            <div class="col-sm-9"><a href="{{claimsDetails.claimUploadFilePath}}" target="blank">{{claimsDetails.claimUploadFilePath}}</a></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Discharge Summary:</div>
+            <div class="col-sm-3">{{claimsDetails.dischargeSummary}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Claim Amount:</div>
+            <div class="col-sm-3">{{claimsDetails.claimAmount}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Policy Id:</div>
+            <div class="col-sm-3">{{claimsDetails.policyId}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Admitted
+                Date:</div>
+            <div class="col-sm-3">{{claimsDetails.admittedDate}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Discharge Date:</div>
+            <div class="col-sm-3">{{claimsDetails.dischargeDate}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">Comments:</div>
+            <div class="col-sm-3"><textarea pInputTextarea [(ngModel)]="commends"></textarea></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6"> <button pButton type="button" label="Approve" (click)="onClaimApprove()"></button>
+                &nbsp;
+                <button pButton type="button" label="Reject" (click)="onClaimReject()"></button>&nbsp;
+                <button pButton type="button" label="Approver 2" (click)="onClaimFwd()" *ngIf="showFwd"></button>
+            </div>
+        </div>
+    </div>
+</p-dialog>
+<!--Msg dispaly-->
+<p-toast [style]="{marginTop: '80px'}" position="top-center"></p-toast>
+<!--confirm Dialog-->
+<p-confirmDialog header="Confirmation" icon="pi pi-exclamation-triangle"></p-confirmDialog>

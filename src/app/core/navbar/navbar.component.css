@@ -55,6 +55,17 @@ a.navbar-brand {
     width: 35%;
     box-sizing: border-box;
 }
+.navbar-right{
+    margin-right: 0px;
+}
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+     }
+  #myHeader{
+      z-index: 9999;
+  }
 /* navbar style end*/
 
 /* Mobile View */
@@ -62,7 +73,8 @@ a.navbar-brand {
 @media only screen and (max-width: 670px) {
     #myLinks {
         display: none;
-    }
+        top: 20px !important;
+    }  
     .icon {
         display: block;
         background: #eee;
@@ -76,7 +88,7 @@ a.navbar-brand {
     .navbar-inverse .navbar-toggle {
         background-color: #00abee;
         position: relative;
-        top: 13px;
+        top: 13px; 
     }
     .navbar-inverse {
         margin-bottom: 0px;
@@ -92,12 +104,23 @@ a.navbar-brand {
     }
     .navbar-inverse img{
         left: 5px;
+        width: 81px;
     }
-    .navbar-nav {
-        margin: -1.0px -16px;
+    .navbar-nav {      
         background: #fff;
     }
     ul.nav.navbar-nav.txt-menu{
         left: 0px;
+    }
+    a.navbar-brand {
+        width: 35%;
+        box-sizing: border-box;
+    }   
+    .container-fluid>.navbar-header{
+        margin: 0px;
+    }
+    .sticky{
+        margin-top: 15px;
+        padding-top: 10px;
     }
 }

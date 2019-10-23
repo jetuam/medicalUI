@@ -15,6 +15,7 @@ import { DataViewModule } from 'primeng/dataview';
 import { PaginatorModule } from 'primeng/paginator';
 import { ToggleButtonModule } from 'primeng/togglebutton';
 import { CalendarModule } from 'primeng/calendar';
+import { FileUploadModule } from 'primeng/fileupload';
 
 @NgModule({
   declarations: [],
@@ -22,6 +23,6 @@ import { CalendarModule } from 'primeng/calendar';
     CommonModule,
   ],
   exports: [TableModule, ButtonModule, DialogModule, InputTextModule, DropdownModule,
-    ConfirmDialogModule, ToastModule, RatingModule, ToggleButtonModule, CalendarModule, MessageModule, PanelModule, DataViewModule, PaginatorModule]
+    ConfirmDialogModule, ToastModule, RatingModule, ToggleButtonModule, FileUploadModule, CalendarModule, MessageModule, PanelModule, DataViewModule, PaginatorModule]
 })
 export class PrimeNgModule { }
