@@ -39,7 +39,7 @@ export class CommonService {
     * @returns the Claim Data value
     */
   postMakeClaim(claimValue) {
-    return this.http.post('http://10.117.189.201:8000/medicalclaims/claims', claimValue, {
+    return this.http.post('http://18.189.186.75:8000/medicalclaims/claims', claimValue, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
